@@ -2,11 +2,11 @@
 
 ## Portfólio Individual
 
-**Aluno:** Nome do aluno ou aluna  
-**Disciplina:** PCS5917 – IA Adversarial  
-**Período:** 3º período de 2026  
-**Instituição:** Universidade de São Paulo – Escola Politécnica  
-**Professor:** Victor Takashi Hayashi  
+**Aluno:** Erick Diogo de Almeida Sousa
+**Disciplina:** PCS5917 – IA Adversarial
+**Período:** 3º período de 2026
+**Instituição:** Universidade de São Paulo – Escola Politécnica
+**Professor:** Victor Takashi Hayashi
 
 ## 1. Objetivo do Portfólio
 
@@ -54,3 +54,9 @@ Alguns experimentos, datasets, prompts, códigos e resultados apresentados podem
 Os conteúdos devem ser utilizados somente em **ambientes autorizados e controlados**, sem direcionamento a sistemas, modelos, redes, dispositivos ou usuários de terceiros. A reprodução dos experimentos deve respeitar as políticas de uso das ferramentas e os termos das plataformas utilizadas.
 
 O conteúdo deste repositório **não constitui recomendação ou incentivo à realização de atividades maliciosas**. O objetivo é compreender riscos de segurança, desenvolver métodos de avaliação e contribuir para o desenvolvimento de sistemas de Inteligência Artificial mais seguros.
+
+## (Aula 1) Notícias e referências científicas sobre IA Adversarial
+
+- Post: ![](images/aula1-post.png)
+
+- Resposta: ![](images/aula1-resposta.png)
