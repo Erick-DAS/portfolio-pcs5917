@@ -60,3 +60,7 @@ O conteúdo deste repositório **não constitui recomendação ou incentivo à r
 - Post: ![](images/aula1-post.png)
 
 - Resposta: ![](images/aula1-resposta.png)
+
+## (Aula 2) Jailbreak do DeepSeek-R1
+
+Notebook em `notebooks/aula-02-llm-jailbreak.ipynb`. CSV de resultados em `resultados/aula-2-jailbreak.csv`
