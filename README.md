@@ -63,4 +63,18 @@ O conteúdo deste repositório **não constitui recomendação ou incentivo à r
 
 ## (Aula 2) Jailbreak do DeepSeek-R1
 
-Notebook em `notebooks/aula-02-llm-jailbreak.ipynb`. CSV de resultados em `resultados/aula-2-jailbreak.csv`
+Notebook em `notebooks/aula-02-llm-jailbreaks.ipynb`. CSV de resultados em `resultados/aula-2-jailbreak.csv`
+
+## (Aula 3) Detecção de áudio falso no ASVspoof 2019
+
+### Atividade em sala
+
+O grupo G4 ficou responsável por debater sobre uma situação de ataque em que um funcionário forneceu suas credenciais para o invasor, que efetuou inúmeras transações via pix, totalizando um valor exorbitante.
+
+Os resultados da análise foram registrados no Miro:
+
+![](images/aula3-miro.png)
+
+### Atividade para casa
+
+Notebook em `notebooks/aula-03-asvspoof.ipynb`.
