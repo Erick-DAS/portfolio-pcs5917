@@ -1,0 +1,4 @@
+deteccao,golden_model,amostras,verdadeiro_positivo,falso_positivo,falso_negativo,verdadeiro_negativo,acuracia,precisao,revocacao,f1
+Grupo E sobre Grupo A,picorv32 (Verilog),20,5,0,5,10,0.750,1.000,0.500,0.667
+Grupo A sobre Grupo E (conjunto DeepSeek),AES (C++),20,10,0,0,10,1.000,1.000,1.000,1.000
+Grupo A sobre Grupo E (conjunto Gemini),AES (C++),20,10,0,0,10,1.000,1.000,1.000,1.000

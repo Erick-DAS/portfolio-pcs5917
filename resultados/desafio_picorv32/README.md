@@ -1,0 +1,7 @@
+# Desafio PicoRV32
+
+O PicoRV32 é um núcleo de processador RISC-V escrito em Verilog. Ele executa instruções de programas, incluindo operações aritméticas e lógicas, desvios e acessos à memória. O recorte deste desafio é RV32I, com interface nativa de memória e sem interrupções nem coprocessador.
+
+O objetivo é analisar cada versão e classificá-la como `trojan` ou `inocuo`: uma alteração deliberadamente incorreta ou uma alteração destinada a preservar o comportamento da referência. Os IDs identificam as amostras e não indicam sua classe.
+
+Preencham a coluna `classificacao` de `classificacao.csv` com `trojan` ou `inocuo`, mantendo os IDs existentes.

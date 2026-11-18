@@ -19,7 +19,8 @@ O objetivo é documentar individualmente o processo de aprendizagem sobre:
 - aplicação de IA em cibersegurança (Aula 3);
 - ataques adversariais contra sistemas de IA (Aulas 4 e 5);
 - avaliação de ataques e uso de LLMs como juiz (Aula 6);
-- defesas em Large Language Models (Aula 7).
+- defesas em Large Language Models (Aula 7);
+- geração e detecção de trojans em código, em ciclo purple team entre grupos (Aula 8).
 
 Os experimentos realizados durante as aulas devem ser complementados por registros individuais, notebooks, respectivos resultados e referências bibliográficas (citações).
 
@@ -216,3 +217,41 @@ Referências usadas:
 - Y. Zhang et al. *Intention Analysis Makes LLMs A Good Jailbreak Defender*. 2024. [arXiv:2401.06561](https://arxiv.org/abs/2401.06561).
 - V. T. Hayashi et al. *DeepSeek Under Attack: An Analysis of Jailbreak Attacks and Prompt-Level Defenses*. IEEE Access, 14, 2026. DOI: [10.1109/ACCESS.2026.3710427](https://doi.org/10.1109/ACCESS.2026.3710427).
 - P. Chao et al. *Jailbreaking Black Box Large Language Models in Twenty Queries*. 2023. [arXiv:2310.08419](https://arxiv.org/abs/2310.08419).
+
+## (Aula 8) Geração e detecção de trojans (purple team)
+
+### Atividade em grupo
+
+Artefatos da troca com o Grupo A em `resultados/desafio_picorv32/` (enunciado recebido, 20 amostras anonimizadas e planilha de vereditos devolvida).
+Métricas em `resultados/aula-8-deteccao.csv`.
+Mesma divisão da aula 6, com contribuição individual (CRediT) em *Software*, *Methodology* e *Validation*.
+Não há notebook: geração e detecção foram feitas pelas interfaces de chat dos modelos.
+
+Configuração do experimento:
+
+- **Golden model do grupo:** `AES.cpp` ([janmoelter/aes](https://github.com/janmoelter/aes)), em C++.
+- **Geradores:** Gemini Flash 3.8 e DeepSeek-v4.1-flash-1017, por pedido manual direto, sem recusa e sem PAIR, CipherChat ou nanoGCG.
+- **Amostras:** 40 (10 legítimas e 10 maliciosas por gerador), não compiladas; o DeepSeek gerou trojans de gatilho e *payload*, e o Gemini injeções de falha sempre ativas.
+- **Troca:** rodada única com o Grupo A, cujo golden model é o PicoRV32 (RV32I em Verilog), ou seja, outra base de código e outra linguagem.
+- **Detector:** Claude Opus 4.8 (raciocínio alto), premissa *black-box*, um subagente isolado por amostra; o diff entre as amostras foi descartado por reconstruir a referência.
+
+Resultados, com trojan como classe positiva:
+
+| Detecção | n | Acurácia | Precisão | Revocação | F1 |
+|---|---|---|---|---|---|
+| Grupo E sobre Grupo A (picorv32) | 20 | 75,0% | 100% | 50,0% | 66,7% |
+| Grupo A sobre Grupo E (DeepSeek, AES) | 20 | 100% | 100% | 100% | 100% |
+| Grupo A sobre Grupo E (Gemini, AES) | 20 | 100% | 100% | 100% | 100% |
+
+![](images/aula8-matriz-confusao.png)
+
+Das 20 amostras do Grupo A (10 trojans), o detector marcou 5, e as 5 eram trojans: nenhum falso positivo e 5 falsos negativos.
+Gerar os trojans foi trivial e detectá-los não, e a revocação de 50% só apareceu porque o conjunto veio de outro grupo, em outro golden model e outra linguagem, que é a relevância do purple team.
+Limitações: rodada única, amostras não compiladas, 20 amostras por métrica e detector do Grupo A desconhecido; as métricas são as calculadas pelo Grupo A, pois não temos o gabarito por amostra.
+
+Referências usadas:
+
+- M. Tehranipoor e F. Koushanfar. *A Survey of Hardware Trojan Taxonomy and Detection*. IEEE Design & Test of Computers, 27(1), 2010. DOI: [10.1109/MDT.2010.7](https://doi.org/10.1109/MDT.2010.7).
+- S. Bhunia et al. *Hardware Trojan Attacks: Threat Analysis and Countermeasures*. Proceedings of the IEEE, 102(8), 2014. DOI: [10.1109/JPROC.2014.2334493](https://doi.org/10.1109/JPROC.2014.2334493).
+- H. Pearce et al. *Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions*. IEEE Symposium on Security and Privacy, 2022. DOI: [10.1109/SP46214.2022.9833571](https://doi.org/10.1109/SP46214.2022.9833571).
+- Golden model do Grupo A: [YosysHQ/picorv32](https://github.com/YosysHQ/picorv32).
